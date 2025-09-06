@@ -1,0 +1,4 @@
+CREATE TABLE loja(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250)
+);
