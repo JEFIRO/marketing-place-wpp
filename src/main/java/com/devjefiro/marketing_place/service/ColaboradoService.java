@@ -22,4 +22,8 @@ public class ColaboradoService {
         colaborador = colaboradorRepository.save(colaborador);
         return new ColaboradoResponseDTO(colaborador);
     }
+
+    public Colaborado getColaboradorByID(Long id) {
+        return colaboradorRepository.findById(id).get();
+    }
 }

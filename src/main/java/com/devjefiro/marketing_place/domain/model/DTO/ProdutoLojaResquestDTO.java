@@ -1,8 +1,7 @@
 package com.devjefiro.marketing_place.domain.model.DTO;
 
 public record ProdutoLojaResquestDTO(
-        ProdutoRequestDTO produto,
-        LojaRequestDTO loja,
+        long loja_id,
         int quantidade
 ) {
 }

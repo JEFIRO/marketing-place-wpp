@@ -1,11 +1,9 @@
 package com.devjefiro.marketing_place.domain.model.DTO;
 
-import com.devjefiro.marketing_place.domain.model.Colaborado;
-import com.devjefiro.marketing_place.domain.model.Endereco;
-import com.devjefiro.marketing_place.domain.model.Loja;
-import com.devjefiro.marketing_place.domain.model.Produto;
+import com.devjefiro.marketing_place.domain.model.*;
 
 import java.util.List;
+import java.util.Set;
 
 public record LojaResponseDTO(
         Long id,
@@ -13,7 +11,8 @@ public record LojaResponseDTO(
         String telefone,
         Endereco endereco,
         List<Colaborado> colaboradores,
-        List<Produto> produtos
+        Set<ProdutoLoja> produtos
+
 ) {
     public LojaResponseDTO(Loja loja) {
         this(loja.getId(),

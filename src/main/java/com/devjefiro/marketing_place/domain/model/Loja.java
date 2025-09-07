@@ -1,12 +1,11 @@
 package com.devjefiro.marketing_place.domain.model;
 
 import com.devjefiro.marketing_place.domain.model.DTO.LojaRequestDTO;
-import com.devjefiro.marketing_place.domain.model.DTO.LojaResponseDTO;
-import com.devjefiro.marketing_place.domain.model.DTO.ProdutoLojaResquestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -29,15 +28,11 @@ public class Loja {
     @OneToMany(mappedBy = "loja")
     private List<Colaborado> colaboradores;
 
-    @ManyToMany(mappedBy = "lojas")
-    private List<Produto> produtos;
+    @OneToMany(mappedBy = "loja")
+    private Set<ProdutoLoja> produtos;
 
     public Loja(LojaRequestDTO requestDTO) {
         this.nome = requestDTO.nome();
         this.endereco = new Endereco(requestDTO.endereco());
     }
-    public Loja(ProdutoLojaResquestDTO requestDTO) {
-        this.produtos.add(new Produto());
-    }
-
 }
