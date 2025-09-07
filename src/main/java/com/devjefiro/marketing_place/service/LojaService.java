@@ -35,4 +35,8 @@ public class LojaService {
     public LojaResponseDTO getById(Long id) {
         return new LojaResponseDTO(lojaRepository.findById(id).get());
     }
+
+    public Loja getLojaByID(Long id) {
+        return lojaRepository.findById(id).get();
+    }
 }

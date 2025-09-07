@@ -1,5 +1,7 @@
 package com.devjefiro.marketing_place.domain.model.DTO;
 
+import com.devjefiro.marketing_place.domain.model.DTO.colaborador.ColaboradoRequestDTO;
+
 import java.util.List;
 
 public record ProdutoRequestDTO(

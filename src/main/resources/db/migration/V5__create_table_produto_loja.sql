@@ -1,4 +1,4 @@
-CREATE TABLE loja_produto
+CREATE TABLE produto_loja
 (
     id_loja    BIGINT,
     id_produto BIGINT,

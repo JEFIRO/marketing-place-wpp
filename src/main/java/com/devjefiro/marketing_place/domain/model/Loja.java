@@ -1,6 +1,7 @@
 package com.devjefiro.marketing_place.domain.model;
 
 import com.devjefiro.marketing_place.domain.model.DTO.LojaRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.LojaResponseDTO;
 import com.devjefiro.marketing_place.domain.model.DTO.ProdutoLojaResquestDTO;
 import jakarta.persistence.*;
 import lombok.*;
