@@ -29,5 +29,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+# Arquivos de configuração local
+application.properties
+
 ### VS Code ###
 .vscode/

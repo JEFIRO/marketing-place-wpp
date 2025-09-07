@@ -1,5 +1,5 @@
 CREATE TABLE colaborado(
-    id int primary key AUTO_INCREMENT,
-    nome varchar(255) not null,
-    role varchar(50) not null
+                           id BIGINT PRIMARY KEY AUTO_INCREMENT,
+                           nome VARCHAR(255) NOT NULL,
+                           role VARCHAR(50) NOT NULL
 );
