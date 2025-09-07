@@ -1,7 +1,7 @@
 package com.devjefiro.marketing_place.domain.model;
 
 
-import com.devjefiro.marketing_place.domain.model.DTO.ColaboradoRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.colaborador.ColaboradoRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
+@ToString
 public class Colaborado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +30,7 @@ public class Colaborado {
     public Colaborado(ColaboradoRequestDTO requestDTO) {
         this.nome = requestDTO.nome();
         this.telefone = requestDTO.telefone();
-        this.role = requestDTO.role();
-        this.loja = new Loja(requestDTO.loja());
+        this.role = RoleEnum.valueOf(requestDTO.role());
     }
 }
 
