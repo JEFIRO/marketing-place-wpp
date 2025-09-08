@@ -1,8 +1,7 @@
-package com.devjefiro.marketing_place.domain.model.DTO;
+package com.devjefiro.marketing_place.domain.model.DTO.produto;
 
-import com.devjefiro.marketing_place.domain.model.Colaborado;
+import com.devjefiro.marketing_place.domain.model.DTO.ProdutoLojaResponseDTO;
 import com.devjefiro.marketing_place.domain.model.Produto;
-import com.devjefiro.marketing_place.domain.model.ProdutoLoja;
 
 import java.util.Set;
 

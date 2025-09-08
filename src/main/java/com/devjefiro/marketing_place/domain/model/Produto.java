@@ -1,7 +1,7 @@
 package com.devjefiro.marketing_place.domain.model;
 
 import com.devjefiro.marketing_place.domain.model.DTO.ProdutoLojaResponseDTO;
-import com.devjefiro.marketing_place.domain.model.DTO.ProdutoRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.produto.ProdutoRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -58,8 +58,5 @@ public class Produto {
         return lojas;
     }
 
-    public void setProdutosEmLojas(ProdutoLoja produtoLoja) {
-        produtosEmLojas.add(produtoLoja);
-    }
 
 }

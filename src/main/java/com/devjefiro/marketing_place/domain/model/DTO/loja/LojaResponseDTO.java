@@ -1,4 +1,4 @@
-package com.devjefiro.marketing_place.domain.model.DTO;
+package com.devjefiro.marketing_place.domain.model.DTO.loja;
 
 import com.devjefiro.marketing_place.domain.model.*;
 

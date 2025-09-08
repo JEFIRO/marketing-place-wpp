@@ -3,8 +3,8 @@ package com.devjefiro.marketing_place.domain.model.DTO;
 import com.devjefiro.marketing_place.domain.model.ProdutoLoja;
 
 public record ProdutoLojaResponseDTO(
-        long produto,
         long loja,
+        long produto,
         int quantidade
 ) {
     public ProdutoLojaResponseDTO(ProdutoLoja produto) {

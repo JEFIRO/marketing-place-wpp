@@ -1,8 +1,8 @@
 package com.devjefiro.marketing_place.service;
 
 import com.devjefiro.marketing_place.domain.model.DTO.ProdutoLojaResquestDTO;
-import com.devjefiro.marketing_place.domain.model.DTO.ProdutoRequestDTO;
-import com.devjefiro.marketing_place.domain.model.DTO.ProdutoResponseDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.produto.ProdutoRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.produto.ProdutoResponseDTO;
 import com.devjefiro.marketing_place.domain.model.Produto;
 import com.devjefiro.marketing_place.domain.model.ProdutoLoja;
 import com.devjefiro.marketing_place.repository.ProdutoLojaRepository;

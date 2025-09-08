@@ -1,6 +1,6 @@
 package com.devjefiro.marketing_place.domain.controller;
 
-import com.devjefiro.marketing_place.domain.model.DTO.ProdutoRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.produto.ProdutoRequestDTO;
 import com.devjefiro.marketing_place.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

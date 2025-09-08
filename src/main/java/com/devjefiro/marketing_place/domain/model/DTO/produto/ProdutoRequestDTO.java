@@ -1,4 +1,6 @@
-package com.devjefiro.marketing_place.domain.model.DTO;
+package com.devjefiro.marketing_place.domain.model.DTO.produto;
+
+import com.devjefiro.marketing_place.domain.model.DTO.ProdutoLojaResquestDTO;
 
 import java.util.List;
 

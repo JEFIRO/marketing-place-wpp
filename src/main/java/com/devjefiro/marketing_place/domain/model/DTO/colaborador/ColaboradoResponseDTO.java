@@ -19,4 +19,6 @@ public record ColaboradoResponseDTO(
                 colaborador.getRole(),
                 colaborador.getLoja().getId());
     }
+
+
 }
