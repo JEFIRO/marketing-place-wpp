@@ -1,6 +1,7 @@
 package com.devjefiro.marketing_place.domain.model;
 
 import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaUpdateDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -51,6 +52,16 @@ public class Loja {
         this.cnpj = requestDTO.cnpj();
         this.endereco = new Endereco(requestDTO.endereco());
         this.status = true;
+    }
+
+    public Loja(LojaUpdateDTO requestDTO) {
+        colaboradores = new ArrayList<>();
+        produtos = new HashSet<>();
+
+        this.nome = requestDTO.nome();
+        this.instagram = requestDTO.instagram();
+        this.telefone = requestDTO.telefone();
+        this.status = requestDTO.status();
     }
 
     public Loja() {

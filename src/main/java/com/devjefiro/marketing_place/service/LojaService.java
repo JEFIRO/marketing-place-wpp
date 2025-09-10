@@ -3,6 +3,7 @@ package com.devjefiro.marketing_place.service;
 
 import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaRequestDTO;
 import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaResponseDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaUpdateDTO;
 import com.devjefiro.marketing_place.domain.model.DTO.produto.ProdutoDetalhadoResponseDTO;
 import com.devjefiro.marketing_place.domain.model.Endereco;
 import com.devjefiro.marketing_place.domain.model.Loja;
@@ -59,37 +60,27 @@ public class LojaService {
     }
 
     @Transactional
-    public LojaResponseDTO update(LojaRequestDTO requestDTO) {
+    public LojaResponseDTO update(LojaUpdateDTO requestDTO) {
         var loja = lojaRepository.findById(requestDTO.id())
                 .orElseThrow(() -> new EntityNotFoundException("Loja não encontrada"));
 
-        var endereco = enderecoRepository.findById(loja.getEndereco().getId())
-                .orElseThrow(() -> new EntityNotFoundException("Endereço não encontrado"));
-
-
-        endereco.setLogradouro(requestDTO.endereco().logradouro());
-        endereco.setNumero(requestDTO.endereco().numero());
-        endereco.setBairro(requestDTO.endereco().bairro());
-        endereco.setCidade(requestDTO.endereco().cidade());
-        endereco.setEstado(requestDTO.endereco().estado());
-        enderecoRepository.save(endereco);
-
-
         loja.setNome(requestDTO.nome());
-        loja.setCnpj(requestDTO.cnpj());
         loja.setTelefone(requestDTO.telefone());
-        loja.setEndereco(endereco);
+        loja.setInstagram(requestDTO.instagram());
+        loja.setStatus(requestDTO.status());
+        loja.setDataAtualizacao(java.time.LocalDateTime.now());
 
         loja = lojaRepository.save(loja);
 
         return new LojaResponseDTO(loja);
     }
 
+    // busca produto da loja por iD
     public List<ProdutoDetalhadoResponseDTO> produtosByLojaId(Long id) {
         return produtoLojaRepository.findByLojaId(id).stream().map(ProdutoDetalhadoResponseDTO::new).toList();
     }
 
-    public List<ProdutoDetalhadoResponseDTO> produtosLoja() {
-        return produtoLojaRepository.findAll().stream().map(ProdutoDetalhadoResponseDTO::new).toList();
+    public List<ProdutoDetalhadoResponseDTO> produtosLoja(Pageable pageable) {
+        return produtoLojaRepository.findAll(pageable).stream().map(ProdutoDetalhadoResponseDTO::new).toList();
     }
 }

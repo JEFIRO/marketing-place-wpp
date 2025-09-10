@@ -1,13 +1,13 @@
 package com.devjefiro.marketing_place.domain.controller;
 
 import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaRequestDTO;
+import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaUpdateDTO;
 import com.devjefiro.marketing_place.service.LojaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 
 @RestController
@@ -27,15 +27,14 @@ public class LojaController {
         return ResponseEntity.ok(lojas);
     }
 
-
     @GetMapping("{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
         return ResponseEntity.ok().body(lojaService.getById(id));
     }
 
     @PutMapping()
-    public ResponseEntity<?> update(@Valid @RequestBody LojaRequestDTO requestDTO) {
-        return ResponseEntity.ok().body(lojaService.newLoja(requestDTO));
+    public ResponseEntity<?> update(@Valid @RequestBody LojaUpdateDTO requestDTO) {
+        return ResponseEntity.ok().body(lojaService.update(requestDTO));
     }
 
     @DeleteMapping("{id}")
@@ -44,8 +43,8 @@ public class LojaController {
     }
 
     @GetMapping("/produto")
-    public ResponseEntity<?> produtosLoja() {
-        return ResponseEntity.ok().body(lojaService.produtosLoja());
+    public ResponseEntity<?> produtosLoja(Pageable p) {
+        return ResponseEntity.ok().body(lojaService.produtosLoja(p));
     }
 
     @GetMapping("/produto/{id}")
