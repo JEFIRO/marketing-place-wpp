@@ -1,17 +1,19 @@
 package com.devjefiro.marketing_place.service;
 
+
 import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaRequestDTO;
 import com.devjefiro.marketing_place.domain.model.DTO.loja.LojaResponseDTO;
 import com.devjefiro.marketing_place.domain.model.DTO.produto.ProdutoDetalhadoResponseDTO;
 import com.devjefiro.marketing_place.domain.model.Endereco;
 import com.devjefiro.marketing_place.domain.model.Loja;
-import com.devjefiro.marketing_place.domain.model.ProdutoLoja;
 import com.devjefiro.marketing_place.repository.EnderecoRepository;
 import com.devjefiro.marketing_place.repository.LojaRepository;
 import com.devjefiro.marketing_place.repository.ProdutoLojaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,8 +37,9 @@ public class LojaService {
         return new LojaResponseDTO(response);
     }
 
-    public List<LojaResponseDTO> getAll() {
-        return lojaRepository.findAll().stream().map(LojaResponseDTO::new).toList();
+    public Page<LojaResponseDTO> listar(Pageable pageable) {
+        return lojaRepository.findAll(pageable)
+                .map(LojaResponseDTO::new);
     }
 
     public LojaResponseDTO getById(Long id) {
