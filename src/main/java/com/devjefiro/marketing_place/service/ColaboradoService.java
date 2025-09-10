@@ -16,7 +16,6 @@ public class ColaboradoService {
 
     public ColaboradoResponseDTO addColaborador(ColaboradoRequestDTO requestDTO) {
         var colaborador = new Colaborado(requestDTO);
-        System.out.println(colaborador);
         var loja = lojaService.getLojaByID(Long.parseLong(requestDTO.loja_id()));
         colaborador.setLoja(loja);
         colaborador = colaboradorRepository.save(colaborador);
